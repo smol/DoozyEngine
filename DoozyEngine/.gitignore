@@ -1,0 +1,4 @@
+*.pdb
+obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache
+obj/Debug/DoozyEngine.csproj.FileListAbsolute.txt
+obj/Debug/DoozyEngine.csprojResolveAssemblyReference.cache

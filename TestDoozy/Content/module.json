@@ -1,0 +1,11 @@
+﻿{
+    Debug: true,
+    Triggers: true,
+    Enemies: true,
+    Friends: true,
+    Sounds: false,
+    Hud: true,
+    Menu: false,
+    IAEnemy: false,
+    Light: false
+}
