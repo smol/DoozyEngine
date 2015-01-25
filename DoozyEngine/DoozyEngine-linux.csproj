@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>10.0.0</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{EF368E70-E2F9-4DFE-8478-40140376A652}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>DoozyEnginelinux</RootNamespace>
+    <AssemblyName>DoozyEngine-linux</AssemblyName>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>full</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="MonoGame.Framework.Linux, Version=2.5.1.0, Culture=neutral">
+      <Private>False</Private>
+      <Package>monogame</Package>
+    </Reference>
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Web.Extensions" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Camera.cs" />
+    <Compile Include="GraphicController.cs" />
+    <Compile Include="Root.cs" />
+    <Compile Include="Config\Graphic.cs" />
+    <Compile Include="Config\Modules.cs" />
+    <Compile Include="Entity\AnimatedSprite.cs" />
+    <Compile Include="Entity\Background.cs" />
+    <Compile Include="Entity\BackgroundElement.cs" />
+    <Compile Include="Entity\DisplayManager.cs" />
+    <Compile Include="Entity\Light.cs" />
+    <Compile Include="Entity\LightEngine.cs" />
+    <Compile Include="Entity\Sprite.cs" />
+    <Compile Include="Entity\TextureManager.cs" />
+    <Compile Include="Entity\Weather.cs" />
+    <Compile Include="Entity\Weather\Rain.cs" />
+    <Compile Include="File\ConfigFile.cs" />
+    <Compile Include="File\FileManager.cs" />
+    <Compile Include="File\SoundManager.cs" />
+    <Compile Include="Input\Event.cs" />
+    <Compile Include="Input\KeyInfo.cs" />
+    <Compile Include="Input\TouchManager.cs" />
+    <Compile Include="Particle\BloodParticles.cs" />
+    <Compile Include="Particle\FireParticles.cs" />
+    <Compile Include="Particle\Particle.cs" />
+    <Compile Include="Particle\ParticleEngine.cs" />
+    <Compile Include="Particle\SnowParticle.cs" />
+    <Compile Include="Screen\ButtonMenu.cs" />
+    <Compile Include="Screen\Cursor.cs" />
+    <Compile Include="Screen\Entry.cs" />
+    <Compile Include="Screen\Screen.cs" />
+    <Compile Include="Screen\MenuRoot.cs" />
+    <Compile Include="UI\Box.cs" />
+    <Compile Include="UI\Button.cs" />
+    <Compile Include="UI\Joystick.cs" />
+    <Compile Include="UI\UIConfig.cs" />
+    <Compile Include="UI\UIIcon.cs" />
+    <Compile Include="UI\UILabel.cs" />
+    <Compile Include="UI\UIObject.cs" />
+    <Compile Include="UI\UIView.cs" />
+    <Compile Include="Utils\RectangleUtils.cs" />
+    <Compile Include="Utils\RotatedRectangle.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+</Project>

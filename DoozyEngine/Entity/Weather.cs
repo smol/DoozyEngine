@@ -156,7 +156,7 @@ namespace DoozyEngine
             if (this.weather is Rain)
                 ((Rain)this.weather).Draw(gameTime);
 
-            RootEngine.Graphics.SetRenderTargets(this.render);
+//            RootEngine.Graphics.SetRenderTargets(this.render);
             RootEngine.Graphics.Clear(Color.TransparentBlack);
 
             DisplayManager.SpriteBatch.Begin();

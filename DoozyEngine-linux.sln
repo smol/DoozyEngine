@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestDoozy-linux", "TestDoozy\TestDoozy-linux.csproj", "{72CC0ECD-A865-402B-98D8-AE29C82BA181}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DoozyEngine-linux", "DoozyEngine\DoozyEngine-linux.csproj", "{EF368E70-E2F9-4DFE-8478-40140376A652}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{72CC0ECD-A865-402B-98D8-AE29C82BA181}.Debug|x86.ActiveCfg = Debug|x86
+		{72CC0ECD-A865-402B-98D8-AE29C82BA181}.Debug|x86.Build.0 = Debug|x86
+		{72CC0ECD-A865-402B-98D8-AE29C82BA181}.Release|x86.ActiveCfg = Release|x86
+		{72CC0ECD-A865-402B-98D8-AE29C82BA181}.Release|x86.Build.0 = Release|x86
+		{EF368E70-E2F9-4DFE-8478-40140376A652}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{EF368E70-E2F9-4DFE-8478-40140376A652}.Debug|x86.Build.0 = Debug|Any CPU
+		{EF368E70-E2F9-4DFE-8478-40140376A652}.Release|x86.ActiveCfg = Release|Any CPU
+		{EF368E70-E2F9-4DFE-8478-40140376A652}.Release|x86.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = TestDoozy\TestDoozy-linux.csproj
+	EndGlobalSection
+EndGlobal

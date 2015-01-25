@@ -1,6 +1,4 @@
 ﻿using System.Linq;
-using System.Windows.Forms;
-using System.Windows.Forms.VisualStyles;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
@@ -47,7 +45,7 @@ namespace DoozyEngine
             if (this.GraphicsManager == null) return;
 
 
-            Screen screen = Screen.AllScreens.First(e => e.Primary);
+//            Screen screen = Screen.AllScreens.First(e => e.Primary);
             
             
             //this.game.Window.IsBorderless = RootEngine.Modules.GraphicsParser.FullScreen;
