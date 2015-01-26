@@ -58,7 +58,7 @@ namespace DoozyEngine.Particle
             this.color = color;
             this.texture = texture;
 
-            this.position = position * GraphicController.TILE_SIZE;
+            this.position = position;
             this.velocity = velocity;
 
             this.size = size;

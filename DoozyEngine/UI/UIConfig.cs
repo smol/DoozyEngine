@@ -20,7 +20,7 @@ namespace DoozyEngine.UI
         {
             UIConfig.texture.SetData(new Color[] { Color.White });
             UIConfig.backgroundText.SetData(new Color[] { Color.Black });
-            //UIConfig.spriteFont = RootEngine.ContentManager.Load<SpriteFont>("interface/font");
+            UIConfig.spriteFont = TextureManager.Instance.GetFont("FONT");
         }
     }
 }

@@ -12,7 +12,7 @@ namespace DoozyEngine.Particle
     {
 
         public BloodParticles() :
-            base(TextureManager.Instance.GetTexture(@"images\bloodParticle"))
+            base(TextureManager.Instance.GetTexture("BLOOD_PARTICLE"))
         {
             this.particleNb = 20;
         }

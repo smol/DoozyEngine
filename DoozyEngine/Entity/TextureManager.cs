@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.Emit;
 using System.Text;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
@@ -25,19 +26,19 @@ namespace DoozyEngine.Entity
             TextureManager.Instance = this;
         }
 
-        public void AddUIConfig(string key) {
-            this.UIConfig = ContentManager.Load<Dictionary<string, int[]>>(key);
+        public void AddUIConfig(string key, string path) {
+            this.UIConfig = ContentManager.Load<Dictionary<string, int[]>>(path);
         }
 
-        public void AddTexture(string key)
+        public void AddTexture(string key, string path)
         {
             if (!this.Textures.ContainsKey(key))
-                this.Textures.Add(key, ContentManager.Load<Texture2D>(key));
+                this.Textures.Add(key, ContentManager.Load<Texture2D>(path));
         }
 
-        public void AddFont(string key)
+        public void AddFont(string key, string path)
         {
-            this.SpriteFonts.Add(key, ContentManager.Load<SpriteFont>(key));
+            this.SpriteFonts.Add(key, ContentManager.Load<SpriteFont>(path));
         }
 
         public Rectangle GetUI(string key) {

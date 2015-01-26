@@ -5,9 +5,9 @@ using System.Text;
 
 namespace DoozyEngine.Config {
     public class Graphic {
-        public int Height;
-        public int Width;
+        public int Height = 720;
+        public int Width = 1280;
 
-        public bool FullScreen;
+        public bool FullScreen = false;
     }
 }

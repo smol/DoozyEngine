@@ -82,7 +82,7 @@ namespace DoozyEngine.Menu
 
             this.spriteFont = RootEngine.ContentManager.Load<SpriteFont>("interface/font");
 
-            this.texture = TextureManager.Instance.GetTexture(@"images\menuBackground");
+            this.texture = TextureManager.Instance.GetTexture("MENU_BACKGROUND");
 
             TouchPanel.EnabledGestures = GestureType.Tap;
 

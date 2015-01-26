@@ -47,7 +47,7 @@ namespace DoozyEngine.UI
 
         public UIObject() {
             if (!(this is UILabel)) 
-                this.uiTexture2D = TextureManager.Instance.GetTexture(@"interface\ui");
+                this.uiTexture2D = TextureManager.Instance.GetTexture("UI");
         }
 
         public virtual int Update(GameTime gameTime) {

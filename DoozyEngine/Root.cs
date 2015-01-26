@@ -1,4 +1,5 @@
 ﻿using System.Web.Script.Serialization;
+using DoozyEngine.Config;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
@@ -50,13 +51,26 @@ namespace DoozyEngine
 
             JavaScriptSerializer jsonSerializer = new JavaScriptSerializer();
 
-            using (StreamReader sr = new StreamReader("Content/graphic_config.json")) {
-                RootEngine.GraphicConfig = jsonSerializer.Deserialize<Config.Graphic>(sr.ReadToEnd());
+            try {
+
+                using (StreamReader sr = new StreamReader("Content/graphic_config.json")) {
+                    RootEngine.GraphicConfig = jsonSerializer.Deserialize<Config.Graphic>(sr.ReadToEnd());
+                }
+
+            }
+            catch (FileNotFoundException) {
+                RootEngine.GraphicConfig = new Graphic();
             }
 
 #if DEBUG
-            using (StreamReader sr = new StreamReader("Content/module.json")) {
-                RootEngine.Modules = jsonSerializer.Deserialize<Config.Modules>(sr.ReadToEnd());
+            try {
+
+                using (StreamReader sr = new StreamReader("Content/module.json")) {
+                    RootEngine.Modules = jsonSerializer.Deserialize<Config.Modules>(sr.ReadToEnd());
+                }
+            }
+            catch (FileNotFoundException) {
+                RootEngine.Modules = new Modules();
             }
 #endif
 

@@ -17,9 +17,8 @@ namespace DoozyEngine.Menu
         public virtual Vector2 Position
         {
             get { return position; }
-            set
-            {
-                position = value * RootEngine.GraphicController.Scale * GraphicController.TILE_SIZE;
+            set {
+                position = value*RootEngine.GraphicController.Scale;
 
                 this.HitBox.X = (int)(position.X);
                 this.HitBox.Y = (int)(position.Y);
@@ -34,8 +33,8 @@ namespace DoozyEngine.Menu
             {
                 this.text = value;
 
-                this.HitBox.Width = (int)(TextureManager.Instance.GetFont(@"interface\font").MeasureString(value).X * RootEngine.GraphicController.Scale.X);
-                this.HitBox.Height = (int)(TextureManager.Instance.GetFont(@"interface\font").MeasureString(value).Y * RootEngine.GraphicController.Scale.Y);
+                this.HitBox.Width = (int)(TextureManager.Instance.GetFont("FONT").MeasureString(value).X * RootEngine.GraphicController.Scale.X);
+                this.HitBox.Height = (int)(TextureManager.Instance.GetFont("FONT").MeasureString(value).Y * RootEngine.GraphicController.Scale.Y);
             }
         }
 
@@ -89,9 +88,9 @@ namespace DoozyEngine.Menu
                 this.Callback();
 
             if (!IsSelected)
-                spriteBatch.DrawString(TextureManager.Instance.GetFont(@"interface\font"), text, Position, NotSelected, 0, Vector2.Zero, 0.7f, SpriteEffects.None, 1);
+                spriteBatch.DrawString(TextureManager.Instance.GetFont("FONT"), text, Position, NotSelected, 0, Vector2.Zero, 0.7f, SpriteEffects.None, 1);
             else
-                spriteBatch.DrawString(TextureManager.Instance.GetFont(@"interface\font"), text, Position, Selected, 0, Vector2.Zero, 0.7f, SpriteEffects.None, 1);
+                spriteBatch.DrawString(TextureManager.Instance.GetFont("FONT"), text, Position, Selected, 0, Vector2.Zero, 0.7f, SpriteEffects.None, 1);
         }
     }
 }

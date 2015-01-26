@@ -14,7 +14,7 @@ namespace DoozyEngine.Entity
         }
 
         public override void Draw(Microsoft.Xna.Framework.GameTime gameTime) {
-            this.SpriteBatch.Draw(this.texture, position, null, Color.White, 0, Vector2.Zero, 1, this.flip, this.layer);
+            this.SpriteBatch.Draw(this.texture, this.Position, null, Color.White, 0, Vector2.Zero, 1, this.flip, this.layer);
         }
     }
 }

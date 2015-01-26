@@ -59,6 +59,9 @@
     <None Include="Content\background_space.xnb">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Include="Content\blast.xnb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="Content\graphic_config.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

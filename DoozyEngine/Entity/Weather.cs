@@ -101,7 +101,7 @@ namespace DoozyEngine
         }
 
         public void LoadContent() {
-            TextureManager.Instance.AddTexture(@"images/weather");
+            TextureManager.Instance.AddTexture("WEATHER", @"images/weather");
 
             this.render = new RenderTarget2D(RootEngine.Graphics, RootEngine.GraphicController.Width, RootEngine.GraphicController.Height);
         }

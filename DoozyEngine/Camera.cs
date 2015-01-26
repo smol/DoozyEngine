@@ -14,7 +14,7 @@ namespace DoozyEngine
             get 
             {
                 return new Rectangle ((int)(-Camera.Position.X), (int)(-Camera.Position.Y),
-                                RootEngine.GraphicController.Width, RootEngine.GraphicController.Height);
+                                (int)Math.Round(RootEngine.GraphicController.Width / RootEngine.GraphicController.Scale.X), (int)Math.Round(RootEngine.GraphicController.Height / RootEngine.GraphicController.Scale.Y));
             } 
         }
 
@@ -32,7 +32,7 @@ namespace DoozyEngine
         // deplacement de la camera
         static public void Move(Vector2 heroePosition)
         {
-            Vector2 temp = -(heroePosition * GraphicController.TILE_SIZE);
+            Vector2 temp = -(heroePosition);
             //temp.Y -= GraphicController.TILE_SIZE;
             //temp.X -= GraphicController.TILE_SIZE;
             temp *= RootEngine.GraphicController.Scale;

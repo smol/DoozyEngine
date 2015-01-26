@@ -14,7 +14,7 @@ namespace DoozyEngine
 
     public class GraphicController
     {
-        public static short TILE_SIZE = 128;
+        //public static short TILE_SIZE = 128;
 
         public GraphicsDeviceManager GraphicsManager = null;
 
@@ -56,7 +56,8 @@ namespace DoozyEngine
             this.GraphicsManager.PreferredBackBufferWidth = RootEngine.GraphicConfig.Width;
             this.GraphicsManager.PreferredBackBufferHeight = RootEngine.GraphicConfig.Height;
             this.GraphicsManager.IsFullScreen = RootEngine.GraphicConfig.FullScreen;
-            this.scale.X = this.scale.Y = (float)(this.GraphicsManager.PreferredBackBufferWidth) / 1920;
+            this.scale.X = (float)(this.GraphicsManager.PreferredBackBufferWidth) / 1920;
+            this.scale.Y = (float) (this.GraphicsManager.PreferredBackBufferHeight)/1080;
             //this.scale.X = this.scale.Y = 0.7f;
             this.GraphicsManager.ApplyChanges();
         }

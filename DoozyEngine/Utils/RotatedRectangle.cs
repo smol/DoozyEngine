@@ -58,12 +58,6 @@ namespace DoozyEngine.Utils
             if (!this.IsEnable)
                 return false;
 
-            theRectangle.X *= GraphicController.TILE_SIZE;
-            theRectangle.Y *= GraphicController.TILE_SIZE;
-
-            theRectangle.Width *= GraphicController.TILE_SIZE;
-            theRectangle.Height *= GraphicController.TILE_SIZE;
-
             return Intersects(new RotatedRectangle(theRectangle, 0.0f));
         }
 

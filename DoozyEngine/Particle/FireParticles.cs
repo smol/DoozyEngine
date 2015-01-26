@@ -47,7 +47,7 @@ namespace DoozyEngine.Particle
 
             //this.position.X += (float)(this.random.NextDouble());
             Vector2 position = this.position;
-            position.X += (float)(this.random.NextDouble() / GraphicController.TILE_SIZE);
+            position.X += (float)(this.random.NextDouble());
 
             return new FireParticle(this.texture, position, velocity, Color.Orange * (float)(random.NextDouble()), size, ttl);
         }

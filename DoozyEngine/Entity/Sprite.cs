@@ -25,7 +25,7 @@ namespace DoozyEngine.Entity
             get { return this.hitBox; }
         }
         
-        protected Vector2 position;
+        private Vector2 position;
         public virtual Vector2 Position 
         {
             get { return position; }
@@ -62,13 +62,10 @@ namespace DoozyEngine.Entity
 
         protected SpriteEffects flip = SpriteEffects.None;
 
-        protected Rectangle sourceRectangle;
+        private Rectangle sourceRectangle;
         public Rectangle SourceRectangle
         {
-            get 
-            {
-                return new Rectangle((int)(position.X), (int)(position.Y), sourceRectangle.Width, sourceRectangle.Height);
-            }
+            get { return this.sourceRectangle; }
             protected set { this.sourceRectangle = value; }
         }
 
@@ -99,36 +96,37 @@ namespace DoozyEngine.Entity
             if (this.sourceRectangle != null && this.Size == Vector2.Zero)
                 this.Size = new Vector2(this.sourceRectangle.Width, this.sourceRectangle.Height);
 
-            Rectangle rectangle = RectangleUtils.Multiply(this.sourceRectangle, GraphicController.TILE_SIZE);
+            //Rectangle rectangle = RectangleUtils.Multiply(this.sourceRectangle, GraphicController.TILE_SIZE);
             //this.origin = new Vector2(this.Size.X, this.Size.Y);
         }
 
-        public virtual void Update(GameTime gameTime)
-        {}
+        public virtual void Update(GameTime gameTime) {
+            
+        }
 
         public virtual void Draw(GameTime gameTime)
         {
-            Rectangle rectangle = RectangleUtils.Multiply(this.sourceRectangle, GraphicController.TILE_SIZE);
+            //Rectangle rectangle = RectangleUtils.Multiply(this.sourceRectangle, GraphicController.TILE_SIZE);
 
-            Rectangle hitbox = RectangleUtils.Multiply(this.HitBox, GraphicController.TILE_SIZE);
+            //Rectangle hitbox = RectangleUtils.Multiply(this.HitBox, GraphicController.TILE_SIZE);
 
             //hitbox.X += GraphicController.TILE_SIZE / 2;
             //hitbox.Y += GraphicController.TILE_SIZE / 2;
 
             if (RootEngine.DebugMode)
             {
-                this.SpriteBatch.Draw(this.hitBoxTexture, hitbox, null, Color.Red * 0.2f, 0, Vector2.Zero, SpriteEffects.None, this.layer - 0.01f);
-                this.SpriteBatch.Draw(this.hitBoxTexture, rectangle, null, Color.Yellow * 0.2f, 0, Vector2.Zero, SpriteEffects.None, this.layer - 0.02f);
+                this.SpriteBatch.Draw(this.hitBoxTexture, this.hitBox, null, Color.Red * 0.2f, 0, Vector2.Zero, SpriteEffects.None, this.layer - 0.01f);
+                this.SpriteBatch.Draw(this.hitBoxTexture, this.sourceRectangle, null, Color.Yellow * 0.2f, 0, Vector2.Zero, SpriteEffects.None, this.layer - 0.02f);
             }
 
             if (this.texture == null) return;
 
-            Vector2 position = (this.Position * GraphicController.TILE_SIZE);// +new Vector2(GraphicController.TILE_SIZE / 2, GraphicController.TILE_SIZE / 2);
+            //Vector2 position = (this.Position * GraphicController.TILE_SIZE);// +new Vector2(GraphicController.TILE_SIZE / 2, GraphicController.TILE_SIZE / 2);
 
             if (this.sourceRectangle == Rectangle.Empty)
-                this.SpriteBatch.Draw(this.texture, position, null, Color.White, 0, this.origin, 1, this.flip, this.layer);
+                this.SpriteBatch.Draw(this.texture, this.position, null, Color.White, 0, this.origin, 1, this.flip, this.layer);
             else
-                this.SpriteBatch.Draw(this.texture, position, rectangle, Color.White, 0, this.origin, 1, this.flip, this.layer);
+                this.SpriteBatch.Draw(this.texture, this.position, this.sourceRectangle, Color.White, 0, this.origin, 1, this.flip, this.layer);
         }
 
     }

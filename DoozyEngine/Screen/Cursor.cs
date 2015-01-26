@@ -34,8 +34,8 @@ namespace DoozyEngine.Menu
 
         public Cursor()
         {
-            TextureManager.Instance.AddTexture(@"interface\ui");
-            this.cursorTexture = TextureManager.Instance.GetTexture(@"interface\ui");
+            TextureManager.Instance.AddTexture("UI", @"interface\ui");
+            this.cursorTexture = TextureManager.Instance.GetTexture("UI");
         }
 
 
