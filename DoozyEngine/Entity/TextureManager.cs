@@ -32,8 +32,12 @@ namespace DoozyEngine.Entity
 
         public void AddTexture(string key, string path)
         {
+			try {
             if (!this.Textures.ContainsKey(key))
                 this.Textures.Add(key, ContentManager.Load<Texture2D>(path));
+			}catch(ContentLoadException){
+
+			}
         }
 
         public void AddFont(string key, string path)
@@ -52,12 +56,21 @@ namespace DoozyEngine.Entity
 
         public SpriteFont GetFont(string key)
         {
+			try {
             return this.SpriteFonts[key];
+			} catch (KeyNotFoundException){
+
+			}
+			return null;
         }
 
         public Texture2D GetTexture(string key)
         {
-            return this.Textures[key];
+			try {
+                return this.Textures[key];
+			} catch (KeyNotFoundException){
+				return null;
+			}
         }
 
     }

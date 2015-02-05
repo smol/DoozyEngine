@@ -25,7 +25,7 @@ namespace DoozyEngine.Entity
             get { return this.hitBox; }
         }
         
-        private Vector2 position;
+        protected Vector2 position;
         public virtual Vector2 Position 
         {
             get { return position; }
@@ -37,25 +37,25 @@ namespace DoozyEngine.Entity
             }
         }
         
-        public virtual float PositionX
-        {
-            get { return this.position.X; }
-            set 
-            {
-                this.hitBox.X = (int)(Math.Round(value, 0));
-                this.position.X = value;
-            }
-        }
+        //public virtual float PositionX
+        //{
+        //    get { return this.position.X; }
+        //    set 
+        //    {
+        //        this.hitBox.X = (int)(Math.Round(value, 0));
+        //        this.position.X = value;
+        //    }
+        //}
 
-        public virtual float PositionY
-        {
-            get { return this.position.Y; }
-            set
-            {
-                this.hitBox.Y = (int)(Math.Round(value, 0));
-                this.position.Y = value;
-            }
-        }
+        //public virtual float PositionY
+        //{
+        //    get { return this.position.Y; }
+        //    set
+        //    {
+        //        this.hitBox.Y = (int)(Math.Round(value, 0));
+        //        this.position.Y = value;
+        //    }
+        //}
 
         protected Texture2D texture = null;
         protected Texture2D hitBoxTexture;

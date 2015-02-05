@@ -6,10 +6,23 @@ using DoozyEngine.Utils;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using SocksAdventureLibrary;
+//using SocksAdventureLibrary;
 
 namespace DoozyEngine.Entity
 {
+    public class Animation
+    {
+        public int[] Scale;
+
+        private float speed;
+        public float Speed {
+            set { speed = value; }
+            get { return speed / Key.Count(); }
+        }
+
+        public List<int[]> Key;
+    }
+
     public class AnimatedSprite : Sprite
     {
         private bool isTouched = false;
@@ -23,7 +36,7 @@ namespace DoozyEngine.Entity
             set {
                 if (animationName != value) {
                     animationName = value;
-                    currentAnim = this.animations.ElementAt(animationIndex).Animation[animationName];
+                    currentAnimation = this.animations[animationName];
                 }
             }
         }
@@ -33,7 +46,7 @@ namespace DoozyEngine.Entity
             set {
                 if (animationIndex != value) {
                     animationIndex = value;
-                    currentAnim = this.animations.ElementAt(animationIndex).Animation[animationName];
+                    //                    currentAnim = this.animations.ElementAt(animationIndex).Animation[animationName];
                 }
             }
             get { return this.animationIndex; }
@@ -43,51 +56,67 @@ namespace DoozyEngine.Entity
 
         private bool animated = true;
 
+        private Animation currentAnimation = null;
+        private Dictionary<string, Animation> animations = new Dictionary<string, Animation>();
 
-        private AnimationInfo currentAnim;
-        private List<AnimationEntity> animations = new List<AnimationEntity>();
+        public Dictionary<string, Animation> Animations {
+            set {
+                if (value != null && value.Count > 0)
+                    this.currentAnimation = value.ElementAt(0).Value;
+
+                this.animations = value;
+            }
+        }
+
+
+
         private float lastFrame = 0;
 
-        public AnimatedSprite(String asset, ContentManager content) :
+        public AnimatedSprite(String asset) :
             base(asset) {
-            this.animations = content.Load<List<AnimationEntity>>("animations/" + asset);
 
-            this.currentAnim = this.animations.ElementAt(animationIndex).Animation[animationName];
-            this.SourceRectangle = new Rectangle(currentAnim.AnimationFrame[0][0], currentAnim.AnimationFrame[0][1], currentAnim.AnimationFrame[0][2], currentAnim.AnimationFrame[0][3]);
+            
 
-            this.hitBox.Height = currentAnim.AnimationFrame[0][2] * 128;
-            this.hitBox.Width = currentAnim.AnimationFrame[0][3] * 128;
+//            this.animations = content.Load<List<AnimationEntity>>("animations/" + asset);
+//
+//            this.currentAnim = this.animations.ElementAt(animationIndex).Animation[animationName];
+//            this.SourceRectangle = new Rectangle(currentAnim.AnimationFrame[0][0], currentAnim.AnimationFrame[0][1], currentAnim.AnimationFrame[0][2], currentAnim.AnimationFrame[0][3]);
+//
+//            this.hitBox.Height = currentAnim.AnimationFrame[0][2] * 128;
+//            this.hitBox.Width = currentAnim.AnimationFrame[0][3] * 128;
         }
 
         public override void Draw(GameTime gameTime) {
+            if (this.currentAnimation == null) {
+                return;
+            }
+
             if (!RootEngine.IsPause) {
 IncreaseAnimation:
                 this.lastFrame += (float)gameTime.ElapsedGameTime.TotalSeconds;
 
-                if (this.lastFrame > this.currentAnim.Speed) {
+                if (this.lastFrame > this.currentAnimation.Speed) {
                     this.lastFrame = 0;
                     if (this.animated) {
                         ++animationFrame;
-                        if (animationFrame >= currentAnim.AnimationFrame.Count)
+                        if (animationFrame >= currentAnimation.Key.Count)
                             animationFrame = 0;
                     }
                 }
 
-                if (animationFrame >= currentAnim.AnimationFrame.Count)
+                if (animationFrame >= currentAnimation.Key.Count)
                     goto IncreaseAnimation;
 
-                this.SourceRectangle = new Rectangle(currentAnim.AnimationFrame[animationFrame][0], currentAnim.AnimationFrame[animationFrame][1], currentAnim.AnimationFrame[animationFrame][2], currentAnim.AnimationFrame[animationFrame][3]);
-                this.SourceRectangle = RectangleUtils.Multiply(this.SourceRectangle, 128);
+                this.SourceRectangle = new Rectangle(currentAnimation.Key[animationFrame][0], currentAnimation.Key[animationFrame][1], currentAnimation.Key[animationFrame][2], currentAnimation.Key[animationFrame][3]);
+                //this.SourceRectangle = RectangleUtils.Multiply(this.SourceRectangle, 128);
                 this.origin = -new Vector2(this.SourceRectangle.Width, this.SourceRectangle.Height);
 
-                if (currentAnim.Scale[1] < 0)
+                if (currentAnimation.Scale[1] < 0)
                     flip = SpriteEffects.FlipHorizontally;
                 else
                     flip = SpriteEffects.None;
             }
             base.Draw(gameTime);
-        }
-        public AnimatedSprite(string asset) : base(asset) {
         }
     }
 }

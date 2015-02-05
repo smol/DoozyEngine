@@ -60,7 +60,7 @@
     <Compile Include="Screen\ButtonMenu.cs" />
     <Compile Include="Screen\Cursor.cs" />
     <Compile Include="Screen\Entry.cs" />
-    <Compile Include="Screen\Root.cs" />
+    <Compile Include="Screen\MenuRoot.cs" />
     <Compile Include="Screen\Screen.cs" />
     <Compile Include="Particle\BloodParticles.cs" />
     <Compile Include="Particle\FireParticles.cs" />
@@ -85,12 +85,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="SDL.dll" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\SocksAdventure\SocksAdventureLibrary\SocksAdventureLibrary.csproj">
-      <Project>{AABE3097-B6C0-43F4-85BC-203B2B0B1061}</Project>
-      <Name>SocksAdventureLibrary</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\MonoGame.Binaries.3.2.0\build\net40\MonoGame.Binaries.targets" Condition="Exists('..\packages\MonoGame.Binaries.3.2.0\build\net40\MonoGame.Binaries.targets')" />

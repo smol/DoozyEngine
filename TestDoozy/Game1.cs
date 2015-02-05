@@ -22,7 +22,7 @@ namespace TestDoozy {
         public Destroy destroy = null;
         private float speed = 1f;
 
-        public Shoot(Vector2 origin, Vector2 direction, Destroy destroy) : base("blast") {
+        public Shoot(Vector2 origin, Vector2 direction, Destroy destroy) : base("BLAST") {
             this.direction = direction;
             this.position = origin;
 
@@ -47,7 +47,7 @@ namespace TestDoozy {
         private double shootingTime = 0;
         private float speed = 0.5f;
 
-        public Space() : base("spaceship1") {
+        public Space() : base("SHIP") {
             
         }
 
@@ -112,11 +112,11 @@ namespace TestDoozy {
 
             this.displayManager.LoadContent();
 
-            TextureManager.Instance.AddTexture("background_space");
-            TextureManager.Instance.AddTexture("spaceship1");
-            TextureManager.Instance.AddTexture("blast");
+            TextureManager.Instance.AddTexture("BACK", "background_space");
+            TextureManager.Instance.AddTexture("SHIP","spaceship1");
+            TextureManager.Instance.AddTexture("BLAST","blast");
 
-            DisplayManager.AddSprite(new Sprite("background_space") { Position = Vector2.Zero, Layer = 0 });
+            DisplayManager.AddSprite(new Sprite("BACK") { Position = Vector2.Zero, Layer = 0 });
             DisplayManager.AddSprite(new Space() { Position = new Vector2(100,100), Layer = 1});
 
 

@@ -250,10 +250,10 @@ namespace DoozyEngine.Entity
                 //for (int i = 0; i < DisplayManager.fixedBars.Count; i++)
                 //    DisplayManager.fixedBars[i].Draw(gameTime);
 
-                //if (RootEngine.Modules.Hud) {
-                //    for (int i = 0; i < DisplayManager.uiViews.Count; i++)
-                //        DisplayManager.uiViews[i].Draw(gameTime);
-                //}
+                if (RootEngine.Modules.Hud) {
+                    for (int i = 0; i < DisplayManager.uiViews.Count; i++)
+                        DisplayManager.uiViews[i].Draw(gameTime);
+                }
             }
             finally
             {
